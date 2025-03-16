@@ -1,0 +1,70 @@
+name:                monte-carlo-buffon
+version:             0.1.0.0
+github:              "gusaud3051/monte-carlo-buffon"
+license:             BSD-3-Clause
+author:              "Hyeonmyeong Kim"
+maintainer:          "gusaud3051+git@gmail.com"
+copyright:           "MIT/GPL3 (if needed)"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/gusaud3051/monte-carlo-buffon#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- sdl2 
+- StateVar
+- foreign-store
+- microlens
+- apecs
+- numbers
+- statistics
+- random
+- optparse-simple
+- optparse-applicative
+
+language: GHC2024
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  buffon-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - monte-carlo-buffon
+
+tests:
+  monte-carlo-buffon-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - monte-carlo-buffon

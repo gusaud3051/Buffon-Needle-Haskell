@@ -1,0 +1,99 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           monte-carlo-buffon
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/gusaud3051/monte-carlo-buffon#readme>
+homepage:       https://github.com/gusaud3051/monte-carlo-buffon#readme
+bug-reports:    https://github.com/gusaud3051/monte-carlo-buffon/issues
+author:         Hyeonmyeong Kim
+maintainer:     gusaud3051+git@gmail.com
+copyright:      MIT/GPL3 (if needed)
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/gusaud3051/monte-carlo-buffon
+
+library
+  exposed-modules:
+      Buffon
+      Lib
+      Sample
+  other-modules:
+      Paths_monte_carlo_buffon
+  autogen-modules:
+      Paths_monte_carlo_buffon
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      StateVar
+    , apecs
+    , base >=4.7 && <5
+    , foreign-store
+    , microlens
+    , numbers
+    , optparse-applicative
+    , optparse-simple
+    , random
+    , sdl2
+    , statistics
+  default-language: GHC2024
+
+executable buffon-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_monte_carlo_buffon
+  autogen-modules:
+      Paths_monte_carlo_buffon
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      StateVar
+    , apecs
+    , base >=4.7 && <5
+    , foreign-store
+    , microlens
+    , monte-carlo-buffon
+    , numbers
+    , optparse-applicative
+    , optparse-simple
+    , random
+    , sdl2
+    , statistics
+  default-language: GHC2024
+
+test-suite monte-carlo-buffon-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_monte_carlo_buffon
+  autogen-modules:
+      Paths_monte_carlo_buffon
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      StateVar
+    , apecs
+    , base >=4.7 && <5
+    , foreign-store
+    , microlens
+    , monte-carlo-buffon
+    , numbers
+    , optparse-applicative
+    , optparse-simple
+    , random
+    , sdl2
+    , statistics
+  default-language: GHC2024
