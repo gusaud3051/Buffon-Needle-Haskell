@@ -2,7 +2,6 @@ module Main (main) where
 
 import Buffon (runBuffonA, runBuffonB, runBuffonC)
 import Options.Applicative
-import System.Random.Stateful (mkStdGen, newIOGenM)
 
 -- Command-line options
 
@@ -26,7 +25,7 @@ buffonOptionsParser =
       ( metavar "METHOD"
           <> short 'M'
           <> long "method"
-          <> help "Method to use: 'A'(mine) or 'B'(other's) or 'C'(mine, but faster due to absense of stdout)"
+          <> help "Method to use: 'A'(mine) or 'B'(inspired by someone's implementation) or 'C'(mine, but faster due to absense of stdout)"
       )
 
 readMethod :: ReadM Char

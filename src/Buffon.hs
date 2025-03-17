@@ -58,12 +58,12 @@ simulateBuffon n needleLength lineSpacing sout g = loop 0 0
                 else
                   (2 * needleLength * fromIntegral currentStep)
                     / (lineSpacing * fromIntegral hits')
-        liftIO $ when sout $ putStrLn $ "Step " ++ show currentStep ++ ": current pi estimate = " ++ show estimate
+        liftIO . when sout . putStrLn $ "Step " <> show currentStep <> ": current pi estimate = " <> show estimate
         loop (i + 1) hits'
 
 runBuffonA :: Int -> IO Double
 runBuffonA n = do
-  -- standard random generator.
+  -- standard psdudo, time-invarient random generator.
   let pureGen = mkStdGen 42 -- period: 2^64
   g <- newIOGenM pureGen
   pi_estimated <- simulateBuffon n 1.0 2.0 True g
@@ -72,7 +72,7 @@ runBuffonA n = do
 -- | same as A, but it is more silent than A.
 runBuffonC :: Int -> IO Double
 runBuffonC n = do
-  -- Use the system's standard random generator.
+  -- standard psdudo, time-invarient random generator.
   let pureGen = mkStdGen 42 -- period: 2^64
   g <- newIOGenM pureGen
   pi_estimated <- simulateBuffon n 1.0 2.0 False g
@@ -85,9 +85,9 @@ x_rnds :: IO [Double]
 x_rnds = fmap randoms newStdGen
 
 -- | Generate an infinite list of abs . sine values.
-genSinIO :: IO [Double]
-genSinIO = do
-  g <- newStdGen
+genAbsSinIO :: IO [Double]
+genAbsSinIO = do
+  g <- newStdGen -- changes every time for each run
   let xs = randoms g :: [Double]
   return (go xs)
  where
@@ -105,6 +105,6 @@ genSinIO = do
 runBuffonB :: Int -> IO Double
 runBuffonB n = do
   ys <- x_rnds -- needle center distances, uniform in [0,1]
-  ss <- genSinIO -- sine values from Marsaglia polar method (in [0,1])
+  ss <- genAbsSinIO -- sine values from Marsaglia polar method (in [0,1])
   let hits = sum . take n $ zipWith (\y s -> if y < s / 2 then 1 else 0) ys ss
   return (fromIntegral n / fromIntegral hits)
