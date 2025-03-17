@@ -1,4 +1,4 @@
-module Sample (genMarsaglia, genCosSin, genSin, uniform0lGen) where
+module Sample (genMarsaglia, genCosSin, genSineValue, uniform0lGen) where
 
 import Statistics.Distribution (ContGen (genContVar))
 import Statistics.Distribution.Uniform (
@@ -65,8 +65,8 @@ genCosSin = \g -> do
     else genCosSin g
 
 -- |  we only really need a sin value.
-genSin :: (StatefulGen g m) => g -> m Double
-genSin = \g -> do
+genSineValue :: (StatefulGen g m) => g -> m Double
+genSineValue = \g -> do
   x <- uniformPM1Gen g
   y <- uniformPM1Gen g
   let s = x * x + y * y
@@ -74,4 +74,4 @@ genSin = \g -> do
     then
       let r_inv = sqrt (1 / s)
        in return $ y * r_inv
-    else genSin g
+    else genSineValue g

@@ -2,7 +2,7 @@ module Buffon (module Sample, buffonStep, simulateBuffon, runBuffonA, runBuffonB
 
 import Control.Monad (when)
 import Control.Monad.IO.Class
-import Sample (genCosSin, genMarsaglia, genSin, uniform0lGen)
+import Sample (genCosSin, genMarsaglia, genSineValue, uniform0lGen)
 import System.Random
 import System.Random.Stateful (StatefulGen, newIOGenM)
 
@@ -14,7 +14,7 @@ Returns True if the needle crosses a line, False otherwise.
 buffonStep :: (StatefulGen g m) => Double -> Double -> g -> m Bool
 buffonStep needleLength lineSpacing g = do
   -- Generate sine value for the needle's orientation.
-  sin_sampled <- genSin g
+  sin_sampled <- genSineValue g
   -- Generate the distance from the needle's center to the nearest line.
   x <- uniform0lGen (lineSpacing / 2) g
   let threshold = (needleLength / 2) * abs sin_sampled
