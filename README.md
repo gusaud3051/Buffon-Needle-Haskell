@@ -10,3 +10,9 @@ Usage: buffon-exe (-n|--number INT) (-M|--method METHOD)
 
   Estimate Pi using Buffon's needle problem
 ```
+# hit-n-miss
+## Build / RUn
+```sh
+stack build --ghc-options -Os
+stack exec hit-n-miss -- -n10000
+```
