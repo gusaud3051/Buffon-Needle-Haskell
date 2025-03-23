@@ -13,6 +13,6 @@ Usage: buffon-exe (-n|--number INT) (-M|--method METHOD)
 # hit-n-miss
 ## Build / RUn
 ```sh
-stack build --ghc-options -Os
+stack build --ghc-options -O2
 stack exec hit-n-miss -- -n10000
 ```
