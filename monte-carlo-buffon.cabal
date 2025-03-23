@@ -1,6 +1,6 @@
 cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.36.0.
+-- This file has been generated from package.yaml by hpack version 0.37.0.
 --
 -- see: https://github.com/sol/hpack
 
@@ -39,11 +39,14 @@ library
       StateVar
     , apecs
     , base >=4.7 && <5
+    , criterion
     , foreign-store
+    , hs-carbon
     , microlens
     , numbers
     , optparse-applicative
     , optparse-simple
+    , parallel
     , random
     , sdl2
     , statistics
@@ -56,18 +59,48 @@ executable buffon-exe
   autogen-modules:
       Paths_monte_carlo_buffon
   hs-source-dirs:
-      app
+      app/buffon-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       StateVar
     , apecs
     , base >=4.7 && <5
+    , criterion
     , foreign-store
+    , hs-carbon
     , microlens
     , monte-carlo-buffon
     , numbers
     , optparse-applicative
     , optparse-simple
+    , parallel
+    , random
+    , sdl2
+    , statistics
+  default-language: GHC2024
+
+executable hit-n-miss
+  main-is: Main.hs
+  other-modules:
+      Paths_monte_carlo_buffon
+  autogen-modules:
+      Paths_monte_carlo_buffon
+  hs-source-dirs:
+      app/HitNMiss
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      StateVar
+    , apecs
+    , base >=4.7 && <5
+    , criterion
+    , foreign-store
+    , hs-carbon
+    , microlens
+    , monte-carlo-buffon
+    , numbers
+    , optparse-applicative
+    , optparse-simple
+    , parallel
     , random
     , sdl2
     , statistics
@@ -87,12 +120,15 @@ test-suite monte-carlo-buffon-test
       StateVar
     , apecs
     , base >=4.7 && <5
+    , criterion
     , foreign-store
+    , hs-carbon
     , microlens
     , monte-carlo-buffon
     , numbers
     , optparse-applicative
     , optparse-simple
+    , parallel
     , random
     , sdl2
     , statistics

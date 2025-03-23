@@ -29,8 +29,11 @@ dependencies:
 - numbers
 - statistics
 - random
+- parallel
 - optparse-simple
 - optparse-applicative
+- criterion
+- hs-carbon
 
 language: GHC2024
 ghc-options:
@@ -50,13 +53,24 @@ library:
 executables:
   buffon-exe:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:         app/buffon-exe
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
     - monte-carlo-buffon
+
+  hit-n-miss:
+    main:                Main.hs
+    source-dirs:         app/HitNMiss
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - monte-carlo-buffon
+
 
 tests:
   monte-carlo-buffon-test:

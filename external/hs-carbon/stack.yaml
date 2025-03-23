@@ -30,14 +30,11 @@ snapshot: nightly-2025-03-15
 #   - wai
 packages:
 - .
-- "external/hs-carbon"
 # Dependency packages to be pulled from upstream that are not in the snapshot.
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:
 #
-allow-newer: true
-extra-deps:
-- sdl2-2.5.5.0@sha256:8226fe90c517a9ec52da011a98d3e5523c8e0759c9c28d45d12dfe9178c5fe31,12150  
+# extra-deps:
 # - acme-missiles-0.3
 # - git: https://github.com/commercialhaskell/stack.git
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
