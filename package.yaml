@@ -71,6 +71,16 @@ executables:
     dependencies:
     - monte-carlo-buffon
 
+  quasi-harmonic-mean:
+    main:                Main.hs
+    source-dirs:         app/quasi-harmonic-mean
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - monte-carlo-buffon
+
 
 tests:
   monte-carlo-buffon-test:

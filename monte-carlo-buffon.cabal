@@ -106,6 +106,33 @@ executable hit-n-miss
     , statistics
   default-language: GHC2024
 
+executable quasi-harmonic-mean
+  main-is: Main.hs
+  other-modules:
+      Paths_monte_carlo_buffon
+  autogen-modules:
+      Paths_monte_carlo_buffon
+  hs-source-dirs:
+      app/quasi-harmonic-mean
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      StateVar
+    , apecs
+    , base >=4.7 && <5
+    , criterion
+    , foreign-store
+    , hs-carbon
+    , microlens
+    , monte-carlo-buffon
+    , numbers
+    , optparse-applicative
+    , optparse-simple
+    , parallel
+    , random
+    , sdl2
+    , statistics
+  default-language: GHC2024
+
 test-suite monte-carlo-buffon-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
