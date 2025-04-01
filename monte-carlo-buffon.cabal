@@ -27,6 +27,7 @@ library
   exposed-modules:
       Buffon
       Lib
+      Quasi
       Sample
   other-modules:
       Paths_monte_carlo_buffon
