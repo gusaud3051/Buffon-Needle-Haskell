@@ -17,6 +17,7 @@
 #
 # snapshot: ./custom-snapshot.yaml
 # snapshot: https://example.com/snapshots/2024-01-01.yaml
+# snapshot: ghc-9.8.4
 snapshot: nightly-2025-03-15
 
 # User packages to be built.
