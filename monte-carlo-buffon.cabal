@@ -26,6 +26,8 @@ source-repository head
 library
   exposed-modules:
       Buffon
+      Ising.Data
+      Ising.Helper
       Lib
       Quasi
       Sample
@@ -48,9 +50,12 @@ library
     , optparse-applicative
     , optparse-simple
     , parallel
+    , primitive
     , random
     , sdl2
     , statistics
+    , transformers
+    , vector
   default-language: GHC2024
 
 executable buffon-exe
@@ -75,9 +80,12 @@ executable buffon-exe
     , optparse-applicative
     , optparse-simple
     , parallel
+    , primitive
     , random
     , sdl2
     , statistics
+    , transformers
+    , vector
   default-language: GHC2024
 
 executable hit-n-miss
@@ -102,9 +110,42 @@ executable hit-n-miss
     , optparse-applicative
     , optparse-simple
     , parallel
+    , primitive
     , random
     , sdl2
     , statistics
+    , transformers
+    , vector
+  default-language: GHC2024
+
+executable ising-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_monte_carlo_buffon
+  autogen-modules:
+      Paths_monte_carlo_buffon
+  hs-source-dirs:
+      app/ising
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      StateVar
+    , apecs
+    , base >=4.7 && <5
+    , criterion
+    , foreign-store
+    , hs-carbon
+    , microlens
+    , monte-carlo-buffon
+    , numbers
+    , optparse-applicative
+    , optparse-simple
+    , parallel
+    , primitive
+    , random
+    , sdl2
+    , statistics
+    , transformers
+    , vector
   default-language: GHC2024
 
 executable quasi-harmonic-mean
@@ -129,9 +170,12 @@ executable quasi-harmonic-mean
     , optparse-applicative
     , optparse-simple
     , parallel
+    , primitive
     , random
     , sdl2
     , statistics
+    , transformers
+    , vector
   default-language: GHC2024
 
 test-suite monte-carlo-buffon-test
@@ -157,7 +201,10 @@ test-suite monte-carlo-buffon-test
     , optparse-applicative
     , optparse-simple
     , parallel
+    , primitive
     , random
     , sdl2
     , statistics
+    , transformers
+    , vector
   default-language: GHC2024
